@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #login-container{
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            text-align: center;
+            max-width: 500px;
+        }
+         #cit-page {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            text-align: center;
+
+        }
+
+#cit-page header {
+    text-align: center;
+    padding: 25px 0;
+    background-color: #007bff; 
+}
+
+        input[type="text"],
+        input[type="password"],
+        button {
+            margin-top: 10px;
+            width: calc(100% - 20px); 
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+        }
+
+        #cit-page {
+            display: none;
+            height: 100vh; 
+        }
+
+        #cit-page header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        #cit-page header img {
+            width: 150px;
+            height: 150px;
+        }
+
+        #cit-page header h1 {
+            margin: 10px 0;
+        }
+
+        #cit-page header p {
+            margin: 5px 0;
+        }
+        #cit-page {
+        display: none;
+        height: 100vh; 
+        background-color:yellow; 
+        }
+
+        .contact-details {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .contact-details p {
+            margin: 5px 0;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-container">
+        <h2>Login for CIT webpage</h2>
+        <input type="text" id="username" placeholder="Username">
+        <br>
+        <input type="password" id="password" placeholder="Password">
+        <br>
+        <button onclick="login()">Login</button>
+        <br>
+        <button onclick="register()">Register</button>
+        <div id="error-message" class="error-message"></div>
+    </div>
+
+    <div id="cit-page">
+        <header>
+            <img src="cit_logo.png" alt="CIT Logo">
+            <h1>CHANNABASAVESHWARA INSTITUTE OF TECHNOLOGY GUBBI,TUMKUR</h1>
+            
+        </header>
+        <div>
+            <h1 style="color: red">ADMISSION OPEN FOR ACADEMIC YEAR 2023-2024</h1>
+        </div>
+
+        <div class="branches-list">
+            <h2>Branches</h2>
+                <p>AI&DS</p>
+                <p>Computer Science</p>
+                 <p>Information Science</p>
+                 <p>Electrical Engineering</p>
+                 <p>Civil Engineerning</p>
+                 <p>Mechanical Engineering</p>
+        </div>
+
+        <div class="contact-details" style="text-align: center">
+            <h2>Contact Details</h2>
+            <p>Branches: Engineering, Management</p>
+            <p>Phone: +91 1234567890</p>
+            <p>Email: info@citcollege.com</p>
+            <p>Visit <a href="https://www.citcollege.com">CIT website</a></p>
+        </div>
+
+        <footer style="background-color:#007bff;">
+            <p>Approved by AICTE New Delhi & Affiliated to VTU Belgaum</p>
+            <p>Accredited by NBA & ISO 9001-2008 Certified</p>
+        </footer>
+    </div>
+
+    <script>
+        const users = {};
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (users[username] && users[username] === password) {
+                showCitPage();
+            } else {
+                document.getElementById('error-message').innerText = "Invalid username or password.";
+            }
+        }
+
+        function register() {
+            const username = prompt("Enter your username:");
+            const password = prompt("Enter your password:");
+
+            if (username && password) {
+                users[username] = password;
+                alert("Registration successful!");
+            } else {
+                alert("Invalid username or password.");
+            }
+        }
+
+        function showCitPage() {
+            document.getElementById('login-container').style.display = 'none';
+            document.getElementById('cit-page').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
